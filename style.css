@@ -1,0 +1,99 @@
+/* Den gesamten Body auf volle Höhe und Breite setzen */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Höhe des Viewports (Vollbild) */
+  display: flex;
+  flex-direction: column; /* Stellt sicher, dass die Inhalte untereinander sind */
+  justify-content: flex-start; /* Die Elemente am oberen Rand ausrichten */
+  background-color: #f4f4f4; /* Heller Hintergrund für angenehmen Kontrast */
+  font-family: 'Arial', sans-serif;
+  color: #333; /* Textfarbe */
+}
+
+/* Kopfbereich */
+header {
+  position: relative;
+  background-color: #16110d; /* Dunkler Hintergrund für den Header */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Überschrift */
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header h2 {
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Navigation links im Header */
+nav a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #f39c12; /* Farbwechsel bei Hover */
+}
+
+/* Schüco-Logo im Header */
+.logo-container {
+  position: absolute;
+  top: 10px;
+  right: 5000px;
+}
+
+.topright-image {
+  width: 20%; /* Schüco-Logo kleiner machen */
+  height: auto;
+  border-radius: 1px;
+}
+
+/* Container für das Bild */
+.image-container {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Bild in der Mitte */
+.center-image {
+  width: 60%; /* Das Bild wird auf 60% der Breite gesetzt */
+  height: auto; /* Höhe wird automatisch proportional angepasst */
+  border-radius: 15px; /* Abgerundete Ecken für das Bild */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Schattierung für einen schönen Effekt */
+}
+
+/* Hauptbereich der Seite */
+main {
+  flex-grow: 1; /* Hauptinhalt nimmt den verbleibenden Platz ein */
+  padding: 2rem;
+  background-color: #ffffff; /* Weißer Hintergrund für den Hauptbereich */
+}
+
+/* Fußzeile */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333333;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Ränder für Links im Footer */
+footer a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+footer a:hover {
+  color: #f39c12; /* Farbwechsel bei Hover */
+}  

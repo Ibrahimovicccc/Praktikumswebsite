@@ -1,0 +1,30 @@
+<section id="feedback">
+  <h2>Feedback zum Blog / Praktikum</h2>
+  <form action="#" method="post">
+    <label for="name">Name (optional):</label><br />
+    <input type="text" id="name" name="name" /><br /><br />
+
+    <label>Wie hat dir der Blog gefallen?</label><br />
+    <input type="radio" id="sehrgut" name="bewertung" value="Sehr gut" />
+    <label for="sehrgut">Sehr gut</label><br />
+    <input type="radio" id="gut" name="bewertung" value="Gut" />
+    <label for="gut">Gut</label><br />
+    <input type="radio" id="ok" name="bewertung" value="Okay" />
+    <label for="ok">Okay</label><br />
+    <input type="radio" id="schlecht" name="bewertung" value="Schlecht" />
+    <label for="schlecht">Schlecht</label><br /><br />
+
+    <label for="inhalt">Wie fandest du den Inhalt?</label><br />
+    <select id="inhalt" name="inhalt">
+      <option value="interessant">Sehr interessant</option>
+      <option value="informativ">Informativ</option>
+      <option value="teilweise">Teilweise interessant</option>
+      <option value="langweilig">Eher langweilig</option>
+    </select><br /><br />
+
+    <label for="kommentar">Was hat dir besonders gefallen oder gefehlt?</label><br />
+    <textarea id="kommentar" name="kommentar" rows="5" cols="40" placeholder="Dein Kommentar..."></textarea><br /><br />
+
+    <button type="submit">Absenden</button>
+  </form>
+</section>

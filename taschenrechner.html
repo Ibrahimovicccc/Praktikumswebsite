@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Taschenrechner</title>
+<style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+      background-color: #f0f0f0;
+    }
+    h2 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    .calculator-buttons button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 18px;
+    }
+    input {
+      margin: 5px 0;
+      padding: 5px;
+    }
+</style>
+</head>
+<body>
+ 
+  <h2>Taschenrechner</h2>
+ 
+  <!-- Auswahlbereich -->
+<div class="section">
+<label for="modus">Modus wählen:</label>
+<select id="modus" onchange="zeigeModus()">
+<option value="normal">Normal</option>
+<option value="ges">Geschwindigkeit</option>
+<option value="bmi">BMI</option>
+</select>
+</div>
+ 
+  <!-- Normaler Rechner -->
+<div id="normal" class="section">
+<h3>Normaler Rechner</h3>
+<input type="text" id="display" readonly><br>
+<div class="calculator-buttons">
+<button onclick="append('1')">1</button>
+<button onclick="append('2')">2</button>
+<button onclick="append('3')">3</button>
+<button onclick="append('+')">+</button><br>
+<button onclick="append('4')">4</button>
+<button onclick="append('5')">5</button>
+<button onclick="append('6')">6</button>
+<button onclick="append('-')">-</button><br>
+<button onclick="append('7')">7</button>
+<button onclick="append('8')">8</button>
+<button onclick="append('9')">9</button>
+<button onclick="append('*')">*</button><br>
+<button onclick="append('0')">0</button>
+<button onclick="append('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="append('/')">/</button><br>
+<button onclick="clearDisplay()">C</button>
+</div>
+</div>
+ 
+  <!-- Geschwindigkeit -->
+<div id="ges" class="section" style="display:none;">
+<h3>Geschwindigkeit berechnen</h3>
+<label>Strecke (in m oder km):</label><br>
+<input type="number" id="strecke"><br>
+<label>Zeit (in Sekunden oder Stunden):</label><br>
+<input type="number" id="zeit"><br>
+<label>Einheit:</label>
+<select id="einheit">
+<option value="kmh">Km/h</option>
+<option value="ms">m/s</option>
+</select><br>
+<button onclick="berechneGeschwindigkeit()">Berechne</button><br>
+<p id="gesErgebnis"></p>
+</div>
+ 
+  <!-- BMI -->
+<div id="bmi" class="section" style="display:none;">
+<h3>BMI berechnen</h3>
+<label>Gewicht (kg):</label><br>
+<input type="number" id="gewicht"><br>
+<label>Größe (m):</label><br>
+<input type="number" id="groesse"><br>
+<label>Geschlecht:</label>
+<select id="geschlecht">
+<option value="M">Männlich</option>
+<option value="W">Weiblich</option>
+</select><br>
+<button onclick="berechneBMI()">Berechne</button><br>
+<p id="bmiErgebnis"></p>
+</div>
+ 
+  <script>
+    function zeigeModus() {
+      let modus = document.getElementById("modus").value;
+      document.getElementById("normal").style.display = modus === "normal" ? "block" : "none";
+      document.getElementById("ges").style.display = modus === "ges" ? "block" : "none";
+      document.getElementById("bmi").style.display = modus === "bmi" ? "block" : "none";
+    }
+ 
+    // Normaler Taschenrechner
+    function append(value) {
+      document.getElementById("display").value += value;
+    }
+ 
+    function calculate() {
+      try {
+        let result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+      } catch (e) {
+        alert("Ungültige Eingabe");
+      }
+    }
+ 
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+ 
+    // Geschwindigkeit
+    function berechneGeschwindigkeit() {
+      let s = parseFloat(document.getElementById("strecke").value);
+      let t = parseFloat(document.getElementById("zeit").value);
+      let einheit = document.getElementById("einheit").value;
+ 
+      if (s === 0 || t === 0 || isNaN(s) || isNaN(t)) {
+        alert("Strecke und Zeit müssen gültig und ungleich 0 sein.");
+        return;
+      }
+ 
+      let v = s / t;
+      let ergebnis;
+ 
+      if (einheit === "kmh") {
+        ergebnis = (v * 3.6).toFixed(2) + " km/h";
+      } else {
+        ergebnis = v.toFixed(2) + " m/s";
+      }
+ 
+      document.getElementById("gesErgebnis").innerText = "Geschwindigkeit: " + ergebnis;
+    }
+ 
+    // BMI
+    function berechneBMI() {
+      let gewicht = parseFloat(document.getElementById("gewicht").value);
+      let groesse = parseFloat(document.getElementById("groesse").value);
+      let geschlecht = document.getElementById("geschlecht").value;
+ 
+      if (gewicht === 0 || groesse === 0 || isNaN(gewicht) || isNaN(groesse)) {
+        alert("Gewicht und Größe müssen gültig und ungleich 0 sein.");
+        return;
+      }
+ 
+      let bmi = gewicht / (groesse * groesse);
+      let text;
+ 
+      if (geschlecht === "M") {
+        if (bmi < 20) text = "Untergewicht";
+        else if (bmi < 25) text = "Normalgewicht";
+        else if (bmi < 30) text = "Übergewicht";
+        else text = "Adipositas";
+      } else {
+        if (bmi < 19) text = "Untergewicht";
+        else if (bmi < 24) text = "Normalgewicht";
+        else if (bmi < 30) text = "Übergewicht";
+        else text = "Adipositas";
+      }
+ 
+      document.getElementById("bmiErgebnis").innerText = `Dein BMI ist ${bmi.toFixed(2)} – ${text}`;
+    }
+</script>
+ 
+</body>
+</html>
