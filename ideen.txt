@@ -1,22 +1,15 @@
 Praktikum
--Webtigher (Python)
--Taschenrechner
+-Webtigher (Python) WebTigerJython
+-Taschenrechner fertig
 -Chatbot
 -Gepromed
 -cisko
 -Pc an und abbauen(Windows ohne internet)
 Gruppenaktivitäten
 
-Lernerfahrung
--Programmieren
--Selbstständig
-Arbeit mit KI
 
-Unternehmen
-- Bereiche
--Zukunft
--Arbeiter
--
+
+
 
 
 
@@ -31,3 +24,4 @@ Arbeitsumfeld
 
 Startesite
 Erwartungen noch hinzufügen
+Feedback
