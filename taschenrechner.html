@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Taschenrechner</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+      color: #ffffff;
+      background-color: white;
+    }
+    h2 {
+      color: rgb(26, 8, 191);
+    }
+    .section {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: rgb(104, 116, 133);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgb(61, 68, 78);
+    }
+    .calculator-buttons button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 18px;
+    }
+    input {
+      margin: 5px 0;
+      padding: 5px;
+    }
+    pre {
+      background: rgb(6, 6, 6);
+      color: rgb(0, 177, 53);
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+    code {
+      font-family: monospace;
+    }
+    .copy-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .info-section {
+      position: absolute;
+      top: 175px;
+      right: 230px;
+      width: 800px;
+      background: rgb(104, 116, 133);
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    .info-section h4 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+      padding: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h2>Taschenrechner</h2>
+<div class="section">
+  <label for="modus">Modus wählen:</label>
+  <select id="modus" onchange="zeigeModus()">
+    <option value="normal">Taschenrechner</option>
+    <option value="ges">Geschwindigkeit</option>
+    <option value="bmi">BMI</option>
+  </select>
+</div>
+<div id="normal" class="section">
+  <div id="formelsammlung" class="info-section">
+    <h4>Formelsammlung</h4>
+    <ul>
+      <li><strong>Rechteck Fläche:</strong> A = l × b</li>
+      <li><strong>Dreieck Fläche:</strong> A = (g × h) / 2</li>
+      <li><strong>Kreisfläche:</strong> A = π × r²</li>
+      <li><strong>Quader Volumen:</strong> V = l × b × h</li>
+      <li><strong>Kugel Volumen:</strong> V = (4/3) × π × r³</li>
+      <li><strong>Umfang Kreis:</strong> U = 2 × π × r</li>
+    </ul>
+  </div>
+  <h3>Taschenrechner</h3>
+  <input type="text" id="display" readonly><br>
+  <div class="calculator-buttons">
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('+')">+</button><br>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('-')">-</button><br>
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('*')">*</button><br>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="append('/')">/</button><br>
+    <button onclick="clearDisplay()">C</button>
+  </div>
+</div>
+<div id="ges" class="section" style="display:none;">
+  <div id="geschwindigkeitBild" class="info-section">
+  <iframe width="500" height="200" 
+        src="https://www.youtube.com/embed/8A1PkODrdCI?autoplay=1" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+</iframe>
+  </div>
+  <h3>Geschwindigkeit berechnen</h3>
+  <label>Strecke (m/km):</label><br>
+  <input type="number" id="strecke"><br>
+  <label>Zeit (s/h):</label><br>
+  <input type="number" id="zeit"><br>
+  <label>Einheit:</label>
+  <select id="einheit">
+    <option value="kmh">Km/h</option>
+    <option value="ms">m/s</option>
+  </select><br>
+  <button onclick="berechneGeschwindigkeit()">Berechne</button><br>
+  <p id="gesErgebnis"></p>
+</div>
+<div id="bmi" class="section" style="display:none;">
+  <div id="bmiTabelle" class="info-section">
+    <h4>BMI-Klassifikation</h4>
+    <table>
+      <tr><th>Kategorie</th><th>Männlich</th><th>Weiblich</th></tr>
+      <tr><td>Untergewicht</td><td>&lt; 20</td><td>&lt; 19</td></tr>
+      <tr><td>Normalgewicht</td><td>20 - 24.9</td><td>19 - 23.9</td></tr>
+      <tr><td>Übergewicht</td><td>25 - 29.9</td><td>24 - 29.9</td></tr>
+      <tr><td>Adipositas</td><td>30+</td><td>30+</td></tr>
+    </table>
+  </div>
+  <h3>BMI berechnen</h3>
+  <label>Gewicht (kg):</label><br>
+  <input type="number" id="gewicht"><br>
+  <label>Größe (m):</label><br>
+  <input type="number" id="groesse"><br>
+  <label>Geschlecht:</label>
+  <select id="geschlecht">
+    <option value="M">Männlich</option>
+    <option value="W">Weiblich</option>
+  </select><br>
+  <button onclick="berechneBMI()">Berechne</button><br>
+  <p id="bmiErgebnis"></p>
+</div>
+
+<!-- Java-Code Bereich -->
+<div class="section">
+<details class="section">
+  <summary><strong>Java-Quellcode anzeigen</strong></summary>
+  <pre id="javaCode"><code>
+  <pre id="javaCode"><code>
+// Java-Version des Rechners
+import java.util.Scanner;
+
+public class Taschenrechner{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welche Funktion willst du nutzen \n Normal = normales rechnen \n Ges = Geschwindigkeit\n BMI ");
+        String modus = scanner.next();
+        System.out.println(modus.toUpperCase());
+        if(modus.toUpperCase().equals("GES")){
+            System.out.println("Wie lang ist die Distanz");
+            double strecke = NutzerEingabe(scanner,"Die strecke kann nicht null sein");
+            System.out.println("Wie viel zeit hat er gebraucht");
+            double zeit = NutzerEingabe(scanner,"Die Zeit kann nicht null sein");
+            String ges = BerechneGes(scanner,strecke,zeit);
+            System.out.println(ges);
+        }    
+        else if(modus.toUpperCase().equals("BMI")){
+            System.out.println("Wie hoch ist dein Gewicht");
+            double gewicht = NutzerEingabe(scanner,"Dein Gewicht kann nicht null sein");
+            System.out.println("Wie groß bist du");
+            double groese = NutzerEingabe(scanner,"Deine größe kann nicht null sein");
+            String Bmi = BerechneBmi(scanner,gewicht,groese);
+            System.out.println(Bmi);
+        }
+        else{
+            System.out.println("Als Default wird immer Normal gewählt gib deine erste zahl ein");
+            double ergebnis = HoleNutzerEingabe(scanner,' ');
+            while(true){
+                System.out.println("Gib mir ein Operator (+,-,*,/,=) ");
+                String eingabe = scanner.next();
+                char operator=eingabe.charAt(0); 
+                if(eingabe.equals("=")){
+                    break;
+                }
+                if(!IstValiderOperator(operator)){
+                    System.out.println("Gib einen der validen Operatoren an");
+                    continue;
+                }
+                double zahl = HoleNutzerEingabe(scanner,operator);
+
+                ergebnis = BerechneErgebnisAusEingabe(ergebnis, zahl, operator); 
+            }
+            System.out.println("Ergebnis:  "+ ergebnis);
+        }
+    }
+    private static double HoleNutzerEingabe(Scanner scanner, char operator){
+        double zahl=0;
+        boolean richtigeEingabe= false;
+        while(!richtigeEingabe){
+            try{
+                System.out.println("Gib mir eine Zahl bitte");
+                zahl=scanner.nextDouble();
+                if(operator=='/' && zahl==0){
+                    System.out.println("Durch 0 teilen nicht möglich");
+                }
+                else{
+                    richtigeEingabe= true;
+                }
+            }
+            catch(Exception e){
+                System.out.println("Fehler: "+e);
+                scanner.next();
+            }
+        }   
+        return zahl;
+    }
+    private static double NutzerEingabe(Scanner scanner,String text){
+        double zahl=0;
+        boolean richtigeEingabe= false;
+        while(!richtigeEingabe){
+            try{
+                System.out.println("Gib mir eine Zahl bitte");
+                zahl=scanner.nextDouble();
+                if(zahl==0){
+                    System.out.println(text);
+                }
+                else{
+                    richtigeEingabe= true;
+                }
+            }
+            catch(Exception e){
+                System.out.println("Fehler: "+e);
+                scanner.next();
+            }
+        }   
+        return zahl;
+    }
+    private static boolean IstValiderOperator(char operator){
+        return operator == '+' ||
+        operator=='-'||
+        operator=='*'||
+        operator=='/';
+    }
+ 
+    private static double BerechneErgebnisAusEingabe(double zahl1, double zahl2, char operator){
+        double ergebnis = 0;
+        if(operator=='+'){
+            ergebnis = zahl1+zahl2;
+        }
+        else if(operator=='-'){
+            ergebnis = zahl1-zahl2;
+        }
+        else if(operator=='*'){
+            ergebnis = zahl1*zahl2;
+        }
+        else if(operator=='/'){
+            ergebnis = zahl1/zahl2;
+        }
+        return ergebnis ;
+    }
+    private static String BerechneGes(Scanner scanner ,double strecke , double zeit){
+            System.out.println("Für Km/h eine 1 und für m/s eine 2");
+            String eingabe = scanner.next();
+            double ges = strecke/zeit;
+            if(eingabe.equals("1")){
+                System.out.println("Willst du auch m/s haben");
+                eingabe = scanner.next();
+                    if (eingabe.toUpperCase().equals("JA")){
+                        return ges+"Km/H  "+ges*3.6+"M/s";
+                }
+                    else{
+                        return ges+"Km/H";
+                }
+            }
+            else{
+                System.out.println("Willst du auch Km/H haben");
+                eingabe = scanner.next();
+                    if (eingabe.toUpperCase().equals("JA")){
+                        return ges+"m/s  "+ges/3.6+"Km/h";
+                }
+                    else{
+                        return ges+"m/s";
+                }
+            }
+    }
+    private static String BerechneBmi(Scanner scanner ,double gewicht , double groese){
+            System.out.println("Bist du als Männliches(M) oder weibliches(W) wesen geboren");
+            String geschlecht = scanner.next();
+            double Bmi = gewicht / (groese*groese);
+            if(geschlecht.toUpperCase().equals("M")){
+                if (Bmi < 20) {
+                    return "Du hast Untergewicht dein BMI ist"+Bmi;
+                }else if (Bmi < 25) {
+                    return "Du hast Normalgewicht dein BMI ist"+Bmi;
+                }else if (Bmi < 30) {
+                    return "Du hast Übergewicht dein BMI ist"+Bmi;
+                }else {
+                    return "Du hast Adipositas dein BMI ist"+Bmi;
+                }
+            }
+            if(geschlecht.toUpperCase().equals("W")){
+                if (Bmi < 19) {
+                    return "Du hast Untergewicht dein BMI ist"+Bmi;
+                }else if (Bmi < 24) {
+                    return "Du hast Normalgewicht dein BMI ist"+Bmi;
+                }else if (Bmi < 30) {
+                    return "Du hast Übergewicht dein BMI ist"+Bmi;
+                }else {
+                    return "Du hast Adipositas dein BMI ist"+Bmi;
+                }
+            }
+            else{
+                return "Du hast ein falsches geschlecht eingegeben hier ist dein BMI:"+Bmi;
+            }
+            }
+  }
+
+
+  </code></pre>
+  <button class="copy-button" onclick="copyJavaCode()">Code kopieren</button>
+</div>
+<script>
+  function zeigeModus() {
+    const modus = document.getElementById("modus").value;
+    document.getElementById("normal").style.display = modus === "normal" ? "block" : "none";
+    document.getElementById("ges").style.display = modus === "ges" ? "block" : "none";
+    document.getElementById("bmi").style.display = modus === "bmi" ? "block" : "none";
+  }
+  function append(value) {
+    document.getElementById("display").value += value;
+  }
+  function calculate() {
+    try {
+      document.getElementById("display").value = eval(document.getElementById("display").value);
+    } catch {
+      alert("Ungültige Eingabe");
+    }
+  }
+  function clearDisplay() {
+    document.getElementById("display").value = "";
+  }
+  function berechneGeschwindigkeit() {
+    const s = parseFloat(document.getElementById("strecke").value);
+    const t = parseFloat(document.getElementById("zeit").value);
+    const einheit = document.getElementById("einheit").value;
+    if (s === 0 || t === 0 || isNaN(s) || isNaN(t)) {
+      alert("Strecke und Zeit müssen gültig und ungleich 0 sein.");
+      return;
+    }
+    const v = s / t;
+    const ergebnis = einheit === "kmh" ? (v * 3.6).toFixed(2) + " km/h" : v.toFixed(2) + " m/s";
+    document.getElementById("gesErgebnis").innerText = "Geschwindigkeit: " + ergebnis;
+  }
+  function berechneBMI() {
+    const gewicht = parseFloat(document.getElementById("gewicht").value);
+    const groesse = parseFloat(document.getElementById("groesse").value);
+    const geschlecht = document.getElementById("geschlecht").value;
+    if (gewicht === 0 || groesse === 0 || isNaN(gewicht) || isNaN(groesse)) {
+      alert("Gewicht und Größe müssen gültig und ungleich 0 sein.");
+      return;
+    }
+    const bmi = gewicht / (groesse * groesse);
+    let text = "";
+    if (geschlecht === "M") {
+      if (bmi < 20) text = "Untergewicht";
+      else if (bmi < 25) text = "Normalgewicht";
+      else if (bmi < 30) text = "Übergewicht";
+      else text = "Adipositas";
+    } else {
+      if (bmi < 19) text = "Untergewicht";
+      else if (bmi < 24) text = "Normalgewicht";
+      else if (bmi < 30) text = "Übergewicht";
+      else text = "Adipositas";
+    }
+    document.getElementById("bmiErgebnis").innerText = `Dein BMI ist ${bmi.toFixed(2)} – ${text}`;
+  }
+</script>
+</body>
+</html>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bdfd0e2a5cbbf0c94ba15d0a95df15290063784
