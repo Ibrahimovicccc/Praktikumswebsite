@@ -2,10 +2,9 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schüco Blog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Webtigerpython | Schüco</title>
+    <style>  
   
     .copy-button {
       margin-top: 10px;
@@ -25,29 +24,91 @@
       border-radius: 60px;
       width: auto;
     }</style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Kopfbereich -->
+  <header>
+    <img src="img/schuuco.jpg" alt="Schüco Logo" class="logo-left" />
+
+    <div class="header-center">
+      <h1>Willkommen auf unserem Blog</h1>
+      <h2>von Ibrahim und Ashwin</h2>
+    </div>
+
+    <img src="img/logo3.jpg" alt="Anderes Logo" class="logo-right" />
+  </header>
 </head>
 <body class="bg-gray-50">
 
-  <!-- Header mit Logos -->
-  <header class="flex justify-between items-center p-4 bg-white shadow">
-    <img src="img/schuuco.jpg" alt="Schüco Logo" class="h-10" />
-    <h1 class="text-xl font-bold text-center flex-1">Willkommen auf unserem Blog</h1>
-    <img src="img/logo3.jpg" alt="CSB Logo" class="h-10" />
-  </header>
+ <nav>
+    <ul class="nav-menu">
+      
+      <li><a href="index.html">Startseite</a></li>
+      <li class="dropdown">
+        <a href="#">Unternehmen</a>
+        <ul class="dropdown-menu">
+          <li><a href="ueber-schueco.html">Über Schüco</a></li>
+<li><a href="bereiche.html">Bereiche</a></li>
 
-  <!-- Navigation -->
-  <nav class="bg-gray-100 border-b">
-    <ul class="flex justify-center space-x-6 p-3 text-sm font-medium text-gray-700">
-      <li><a href="#" class="hover:text-blue-600">Startseite</a></li>
-      <li><a href="#" class="hover:text-blue-600">Unternehmen</a></li>
-      <li><a href="#" class="hover:text-blue-600">Praktikum</a></li>
-      <li><a href="#" class="hover:text-blue-600">Lernerfahrungen</a></li>
-      <li><a href="#" class="hover:text-blue-600">Arbeitsumfeld</a></li>
-      <li><a href="#" class="hover:text-blue-600">Karriere</a></li>
-      <li><a href="#" class="hover:text-blue-600">Fazit</a></li>
+          
+          
+          <li><a href="standorte.html">Standorte</a></li>
+         <li><a href="geschichte.html">Geschichte</a></li>
+       <li><a href="produktelösungen.html">Produkte & Lösungen</a></li>
+          <li><a href="nachhaltigkeit.html">Nachhaltigkeit</a></li>
+          <li><a href="forschunginnovation.html">Forschung & Innovation </a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Praktikum</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Tagesablauf</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="Webtigerpython.html">WebTigerJython</a></li>
+          <li><a href="taschenrechner.html">Taschenrechner</a></li>
+          <li><a href="#">Chatbot</a></li>
+          <li><a href="#">Stable Diffusion </a></li>
+          <li><a href="#">Cisko</a></li>
+          <li><a href="#">PC Installation</a></li>
+          <li><a href="#">Gruppenaktivitäten</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Lernerfahrungen</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Programmieren</a></li>
+          <li><a href="#">Selbstständigkeit</a></li>
+          <li><a href="#">KI-Einsatz</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Arbeitsumfeld</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Team & Kollegen</a></li>
+          <li><a href="#">Arbeitsplatz</a></li>
+          <li><a href="#">Arbeitszeiten & Flexibilität</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Karriere</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Jobs & Stellenangebote</a></li>
+          <li><a href="#">Bewerbungsprozess</a></li>
+          <li><a href="#">Karrierewege & Perspektiven</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Fazit</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ibrahim</a></li>
+          <li><a href="#">Ashwin</a></li>
+        </ul>
+      </li>
+      
     </ul>
   </nav>
-
   <!-- Inhalt -->
   <main class="min-h-[400px] flex flex-col items-center justify-center text-gray-700 px-6 py-12 space-y-6 text-center">
 
@@ -59,6 +120,7 @@
         Sie wurde speziell für den Einsatz im Schulunterricht entwickelt und ermöglicht es,
         Python-Code direkt im Browser zu schreiben und auszuführen – ohne Installation.
         Dies macht es besonders einfach, erste Schritte im Programmieren zu unternehmen.
+        Zwei Beispiele sind unten zu finden.
       </p>
     </section>
 
