@@ -10,16 +10,30 @@
       color: #ffffff;
       background-color: white;
     }
-    h2 {
-      color: rgb(26, 8, 191);
+    h3 {
+      color: #ffffff;
     }
-    .section {
+
+    .section1 {
+      margin-bottom: 30px;
+      top: 50px;
+      padding: 20px;
+      height: 10px;
+      background: rgb(104, 116, 133);
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgb(61, 68, 78);
+      color: white;
+    }
+    .section2 {
       margin-bottom: 30px;
       padding: 20px;
+      height: 450px;
       background: rgb(104, 116, 133);
-      border-radius: 8px;
+      border-radius: 20px;
+      color: white;
       box-shadow: 0 0 10px rgb(61, 68, 78);
     }
+    
     .calculator-buttons button {
       width: 50px;
       height: 50px;
@@ -52,10 +66,11 @@
     }
     .info-section {
       position: absolute;
-      top: 175px;
+      top: 250px;
       right: 230px;
       width: 800px;
       background: rgb(104, 116, 133);
+      color: white;
       padding: 15px;
       border-radius: 10px;
       font-size: 20px;
@@ -74,10 +89,95 @@
       text-align: center;
     }
   </style>
+ <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<h2>Taschenrechner</h2>
-<div class="section">
+  <!-- Kopfbereich -->
+  <header>
+    <img src="img/schuuco.jpg" alt="Schüco Logo" class="logo-left" />
+
+    <div class="header-center">
+      <h1>Willkommen auf unserem Blog</h1>
+      <h2>von Ibrahim und Ashwin</h2>
+    </div>
+
+    <img src="img/logo3.jpg" alt="Anderes Logo" class="logo-right" />
+  </header>
+</head>
+<body class="bg-gray-50">
+
+ <nav>
+    <ul class="nav-menu">
+      
+      <li><a href="index.html">Startseite</a></li>
+      <li class="dropdown">
+        <a href="#">Unternehmen</a>
+        <ul class="dropdown-menu">
+          <li><a href="ueber-schueco.html">Über Schüco</a></li>
+<li><a href="bereiche.html">Bereiche</a></li>
+
+          
+          
+          <li><a href="standorte.html">Standorte</a></li>
+         <li><a href="geschichte.html">Geschichte</a></li>
+       <li><a href="produktelösungen.html">Produkte & Lösungen</a></li>
+          <li><a href="nachhaltigkeit.html">Nachhaltigkeit</a></li>
+          <li><a href="forschunginnovation.html">Forschung & Innovation </a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Praktikum</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Tagesablauf</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="Webtigerpython.html">WebTigerJython</a></li>
+          <li><a href="taschenrechner.html">Taschenrechner</a></li>
+          <li><a href="#">Chatbot</a></li>
+          <li><a href="#">Stable Diffusion </a></li>
+          <li><a href="#">Cisko</a></li>
+          <li><a href="#">PC Installation</a></li>
+          <li><a href="#">Gruppenaktivitäten</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Lernerfahrungen</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Programmieren</a></li>
+          <li><a href="#">Selbstständigkeit</a></li>
+          <li><a href="#">KI-Einsatz</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Arbeitsumfeld</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Team & Kollegen</a></li>
+          <li><a href="#">Arbeitsplatz</a></li>
+          <li><a href="#">Arbeitszeiten & Flexibilität</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Karriere</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Jobs & Stellenangebote</a></li>
+          <li><a href="#">Bewerbungsprozess</a></li>
+          <li><a href="#">Karrierewege & Perspektiven</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Fazit</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ibrahim</a></li>
+          <li><a href="#">Ashwin</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </nav>
+</head>
+<body>
+  
+<div class="section1">
   <label for="modus">Modus wählen:</label>
   <select id="modus" onchange="zeigeModus()">
     <option value="normal">Taschenrechner</option>
@@ -85,16 +185,24 @@
     <option value="bmi">BMI</option>
   </select>
 </div>
-<div id="normal" class="section">
+<div id="normal" class="section2">
   <div id="formelsammlung" class="info-section">
     <h4>Formelsammlung</h4>
     <ul>
+      <li><strong>Quadrat Fläche:</strong> A = a × a</li>
       <li><strong>Rechteck Fläche:</strong> A = l × b</li>
-      <li><strong>Dreieck Fläche:</strong> A = (g × h) / 2</li>
-      <li><strong>Kreisfläche:</strong> A = π × r²</li>
-      <li><strong>Quader Volumen:</strong> V = l × b × h</li>
-      <li><strong>Kugel Volumen:</strong> V = (4/3) × π × r³</li>
+      <li><strong>Dreieck Fläche:</strong> A = g × h ÷ 2</li>
+      <li><strong>Kreisfläche:</strong> A = π × r × r</li>
+      <li><strong>Trapez Fläche:</strong> A = a + b × h ÷ 2</li>
+      <li><strong>Umfang Quadrat:</strong> U = 4 × a</li>
+      <li><strong>Umfang Rechteck:</strong> U = 2 × l + 2 × b</li>
       <li><strong>Umfang Kreis:</strong> U = 2 × π × r</li>
+      <li><strong>Dichte:</strong> ρ = m ÷ V</li>
+      <li><strong>Kraft:</strong> F = m × a</li>
+      <li><strong>Druck:</strong> p = F ÷ A</li>
+      <li><strong>Arbeit:</strong> W = F × s</li>
+      <li><strong>Leistung:</strong> P = W ÷ t</li>
+      <li><strong>Spannung:</strong> U = R × I</li>
     </ul>
   </div>
   <h3>Taschenrechner</h3>
@@ -119,9 +227,9 @@
     <button onclick="clearDisplay()">C</button>
   </div>
 </div>
-<div id="ges" class="section" style="display:none;">
+<div id="ges" class="section2" style="display:none;">
   <div id="geschwindigkeitBild" class="info-section">
-  <iframe width="500" height="200" 
+  <iframe width="600" height="400" 
         src="https://www.youtube.com/embed/8A1PkODrdCI?autoplay=1" 
         title="YouTube video player" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -141,7 +249,7 @@
   <button onclick="berechneGeschwindigkeit()">Berechne</button><br>
   <p id="gesErgebnis"></p>
 </div>
-<div id="bmi" class="section" style="display:none;">
+<div id="bmi" class="section2" style="display:none;">
   <div id="bmiTabelle" class="info-section">
     <h4>BMI-Klassifikation</h4>
     <table>
@@ -167,8 +275,8 @@
 </div>
 
 <!-- Java-Code Bereich -->
-<div class="section">
-<details class="section">
+<div class="section1">
+<details class="section1">
   <summary><strong>Java-Quellcode anzeigen</strong></summary>
   <pre id="javaCode"><code>
   <pre id="javaCode"><code>
@@ -402,7 +510,3 @@ public class Taschenrechner{
 </script>
 </body>
 </html>
-<<<<<<< HEAD
-=======
-
->>>>>>> 5bdfd0e2a5cbbf0c94ba15d0a95df15290063784
