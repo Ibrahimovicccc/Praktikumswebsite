@@ -5,14 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Schüco Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>  
+  
+    .copy-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+      pre {
+      background: rgb(6, 6, 6);
+      color: rgb(0, 177, 53);
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 60px;
+      width: auto;
+    }</style>
 </head>
 <body class="bg-gray-50">
 
   <!-- Header mit Logos -->
   <header class="flex justify-between items-center p-4 bg-white shadow">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Schueco_logo.svg" alt="Schüco Logo" class="h-10" />
+    <img src="img/schuuco.jpg" alt="Schüco Logo" class="h-10" />
     <h1 class="text-xl font-bold text-center flex-1">Willkommen auf unserem Blog</h1>
-    <img src="https://www.csb-bielefeld.de/wp-content/uploads/2021/01/CSB_Logo_weissblau.png" alt="CSB Logo" class="h-10" />
+    <img src="img/logo3.jpg" alt="CSB Logo" class="h-10" />
   </header>
 
   <!-- Navigation -->
@@ -28,11 +48,67 @@
     </ul>
   </nav>
 
-  <!-- Platz für Inhalt -->
-  <main class="min-h-[400px] flex items-center justify-center text-gray-500 text-lg italic">
-    <!-- Hier kannst du eigenen Inhalt einfügen -->
-    <p>Inhalt kommt hier hin...</p>
-  </main>
+  <!-- Inhalt -->
+  <main class="min-h-[400px] flex flex-col items-center justify-center text-gray-700 px-6 py-12 space-y-6 text-center">
 
+    <!-- Erklärungstext -->
+    <section class="max-w-2xl">
+      <h2 class="text-2xl font-semibold mb-4">Was ist WebTigerPython?</h2>
+      <p class="text-lg leading-relaxed">
+        WebTigerPython ist eine webbasierte Entwicklungsumgebung für die Programmiersprache Python.
+        Sie wurde speziell für den Einsatz im Schulunterricht entwickelt und ermöglicht es,
+        Python-Code direkt im Browser zu schreiben und auszuführen – ohne Installation.
+        Dies macht es besonders einfach, erste Schritte im Programmieren zu unternehmen.
+      </p>
+    </section>
+
+    <!-- Zwei Links darunter -->
+    <div class="space-x-4">
+      <a href="https://webtigerjython.ethz.ch/" target="_blank" class="text-blue-600 hover:underline">Link zu WebTigerJython Seite</a>
+      <a href= "https://webtigerpython.ethz.ch/?code=NobwRAdghgtgpmAXGGUCWEB0AHAnmAGjABMoAXKJMAMwCcB7GAAgHNsoI4AbJtGberTJMAVAB0IdRk1odi0vgKHiIE4nGoy5jAML0uggBQBKJoglNLTKEwC8WiMQxlDABgIAmAKxfjFqwBGdg5OEC7u3r7-lgDGwbKOzm6ePn4QVjJwZACutOmoANZwega0hlAEAQQxaRKFcADiAAoc3IYAtAAs7kzdBExdPd21koK8vOkJLHCGvubpVtRjBRMO07PG8xkZAM5ZJUYJ8jAHZcZp21ZcGDNo_T0F_R6uF5dM6lxQuLMv0UxLtCYKwwaxmcz-u32-kO2hO0LOr0u104hjuTAe_QAjL8FpcPl8foj_stVlMwZsIVY9mRToYjrp4SYiRlkbcRO1Mfd-gV2ZymNjmVZ8d8vDiMgCgaSOOtwbjttTafS4aUmZTLKzUbyuTyOZ4xW9hYSJABiABKsIkMS4cCgZwklrQtCtM2GdXoADcZs8CAKJArGWIwDFcBxA2lqGguFwdI7nRs3Z6Ot7fZJI9HY9b4xB_SrA7Q4MQwxINe4vAR3BycTAPTN2t72gBmHG2mKGZMNggAThxhuxrh73AJfbSzttJntEGriYbZa6UWzUNzYGwuWw1qLEBiGZmmPnU5mM4IXQbaRzRkDAS42TgG63TszzzS-8Mh66mNPi_PQZDqjAI-3bZ7jWL6zg2nYfjSAZgCw-ZwL-_73geVbAa-DYAOwQbSga4NwBgAO63gBM5PihoHzmeZSBoI0o3n-DqIYYrqTqRR4NiefqfpRYD5oWdGbgBnTzr2_Y4qOdoQGacDTBAAT0NJE4SGAAC-AC6QA" target="_blank" class="text-blue-600 hover:underline">Experimente mit WebTigerPython</a>
+    </div>
+ <!-- Python-Code Ibrahim´s "Spiel" -->
+<section class="max-w-3xl w-full">
+  <details class="bg-white p-4 rounded shadow">
+    <summary class="cursor-pointer font-semibold text-lg">Ibrahim´s "Such Spiel"</summary>
+    <pre id="pythonCode" class="mt-4"><code>
+import math
+from gpanel import *
+
+def step():
+    global t
+    x = r * math.cos(t)
+    y = r * math.sin(t)
+    t = t + 0.2
+    if t > 0:
+        t = 0
+        setColor(getRandomX11Color())
+    move(x, y)
+    fillCircle(-0.1)
+
+makeGPanel(-300, 1000, 200, -300)
+bgColor("green")
+t = 0
+r = 200
+while True:
+    step()
+    </code></pre>
+    <button class="copy-button" onclick="copyCode()">Code kopieren</button>
+  </details>
+</section>
+
+<!-- PythonScript für Kopieren -->
+<script>
+  function copyCode() {
+    const code = document.getElementById("pythonCode").innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Code wurde kopiert!");
+    }, () => {
+      alert("Kopieren fehlgeschlagen.");
+    });
+  }
+</script>
+
+</div>
 </body>
 </html>
