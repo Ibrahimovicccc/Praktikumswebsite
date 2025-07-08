@@ -11,7 +11,7 @@ body {
   background-color: #f9fbfd; /* etwas helleres Hellblau als Hintergrund */
   font-family: 'Roboto', Arial, sans-serif; /* Schriftfamilie setzen */
   color: #2c3e50; /* dunkleres Blau-Grau für Text */
-  overflow: hidden; /* Scrollbalken verhindern */
+  
 }
 
 /* Kopfbereich */
@@ -164,6 +164,21 @@ main {
   max-height: 50vh; /* max. Höhe 50% vom Viewport */
   object-fit: cover; /* Bild proportional zuschneiden */
 }
+.l-image {
+  
+  margin: 100px auto;       /* Bild zentrieren (horizontal) und oben/unten Abstand */
+  max-width: 50%;          /* Bild maximal 90% der Breite des Containers */
+  height: auto;            /* Höhe passt sich proportional an */
+  border: 2px solid #333;  /* optional: Rahmen um das Bild */
+  border-radius: 8px;      /* optional: abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für 3D-Effekt */
+  margin-top: -40px;
+}
+.Inhalt {
+  margin-top: -400px;
+}
+
+
 
 /* Fußzeile */
 footer {
