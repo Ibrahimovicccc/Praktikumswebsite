@@ -275,6 +275,103 @@ footer {
     background-color: #d9e9ff;
 }
 
+ .ok {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #003366;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    max-width: 700px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 51, 102, 0.15);
+    background-color: #f9faff;
+  }
+  h1 {
+    color: #004080;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #0059b3;
+    padding-bottom: 8px;
+  }
+  p {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    margin-bottom: 1.3rem;
+  }
+
+  .footer {
+    margin-top: 3rem;
+    font-style: italic;
+    color: #336699;
+    text-align: center;
+  }
+
+  .z-image {
+  
+  margin: 100px auto;       /* Bild zentrieren (horizontal) und oben/unten Abstand */
+  max-width: 30%;          /* Bild maximal 90% der Breite des Containers */
+  height: auto;            /* Höhe passt sich proportional an */
+  border: 2px solid #333;  /* optional: Rahmen um das Bild */
+  border-radius: 8px;      /* optional: abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für 3D-Effekt */
+  margin-top: -900px;
+  margin-left: 900px;
+}
+
+.n-image {
+  
+  margin: 100px auto;       /* Bild zentrieren (horizontal) und oben/unten Abstand */
+  max-width: 30%;          /* Bild maximal 90% der Breite des Containers */
+  height: auto;            /* Höhe passt sich proportional an */
+  border: 2px solid #333;  /* optional: Rahmen um das Bild */
+  border-radius: 8px;      /* optional: abgerundete Ecken */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für 3D-Effekt */
+  margin-top: -300px;
+  margin-right: 150px;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #004a99;
+            margin-bottom: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+        th {
+            background-color: #004a99;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 1.3em;
+        }
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #dddddd;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+ 
+
+
+
 /* Links in der Fußzeile */
 footer a {
   color: #f39c12; /* orange Farbe */
