@@ -236,6 +236,44 @@ footer {
   font-weight: 500; /* Schriftgewicht */
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Schatten oben */
 }
+.team-experience-table {
+    width: 80%;
+    margin: 0 auto 50px;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.team-experience-table caption {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #004a99;
+    text-align: center;
+}
+
+.team-experience-table th, 
+.team-experience-table td {
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.team-experience-table th {
+    background-color: #0078d7;
+    color: white;
+    font-size: 1.2em;
+}
+
+.team-experience-table tr:nth-child(even) {
+    background-color: #f1f6fb;
+}
+
+.team-experience-table tr:hover {
+    background-color: #d9e9ff;
+}
 
 /* Links in der Fußzeile */
 footer a {
