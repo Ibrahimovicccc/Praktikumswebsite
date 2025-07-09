@@ -9,6 +9,7 @@
       margin: 20px;
       color: #ffffff;
       background-color: white;
+      min-height: 1400px;
     }
     h3 {
       color: #ffffff;
@@ -23,9 +24,11 @@
       border-radius: 20px;
       box-shadow: 0 0 10px rgb(61, 68, 78);
       color: white;
+      overflow: 200%;
     }
     .section2 {
       margin-bottom: 30px;
+            top: 50px;
       padding: 20px;
       height: 450px;
       background: rgb(104, 116, 133);
@@ -48,8 +51,19 @@
       background: rgb(6, 6, 6);
       color: rgb(0, 177, 53);
       padding: 15px;
-      overflow-x: auto;
-      border-radius: 8px;
+      border-radius: 50px;
+      max-width: 100% !important;
+      overflow-x: auto; /* Horizontal scrollbar für lange Zeilen */
+      overflow-y: auto
+    }
+    details {
+    margin-bottom: 10px;
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
     }
     code {
       font-family: monospace;
@@ -63,6 +77,16 @@
       color: white;
       border: none;
       border-radius: 5px;
+    }
+    #javaCode {
+      background: rgb(6, 6, 6);
+      color: rgb(0, 177, 53);
+      padding: 15px;
+      overflow-y: auto; /* Ermöglicht vertikales Scrollen */
+      max-height: 500px; /* Begrenzung der Höhe */
+      border-radius: 8px;
+      white-space: pre-wrap; /* Damit der Text nicht über den Rand hinaus geht */
+      word-wrap: break-word; /* Zeilenumbrüche verhindern, dass der Text überläuft */
     }
     .info-section {
       position: absolute;
@@ -88,6 +112,28 @@
       padding: 5px;
       text-align: center;
     }
+  
+    .scroll-section {
+      height: 500px;
+      overflow-y: auto;
+      background: #e0e0e0;
+    }
+        /* Stil für den ausklappbaren Bereich */
+    details {
+      margin-bottom: 10px;
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    html, body {
+    height: 150%;
+    margin: 0;
+    overflow-y: auto; /* Vertikales Scrollen aktivieren */
+    overflow-x: auto; /* Verhindert horizontales Scrollen */
+}
   </style>
  <link rel="stylesheet" href="style.css" />
 </head>
@@ -175,6 +221,7 @@
     </ul>
   </nav>
 </head>
+
 <body>
   
 <div class="section1">
@@ -189,18 +236,15 @@
   <div id="formelsammlung" class="info-section">
     <h4>Formelsammlung</h4>
     <ul>
-      <li><strong>Quadrat Fläche:</strong> A = a × a</li>
       <li><strong>Rechteck Fläche:</strong> A = l × b</li>
       <li><strong>Dreieck Fläche:</strong> A = g × h ÷ 2</li>
       <li><strong>Kreisfläche:</strong> A = π × r × r</li>
-      <li><strong>Trapez Fläche:</strong> A = a + b × h ÷ 2</li>
       <li><strong>Umfang Quadrat:</strong> U = 4 × a</li>
       <li><strong>Umfang Rechteck:</strong> U = 2 × l + 2 × b</li>
       <li><strong>Umfang Kreis:</strong> U = 2 × π × r</li>
       <li><strong>Dichte:</strong> ρ = m ÷ V</li>
       <li><strong>Kraft:</strong> F = m × a</li>
       <li><strong>Druck:</strong> p = F ÷ A</li>
-      <li><strong>Arbeit:</strong> W = F × s</li>
       <li><strong>Leistung:</strong> P = W ÷ t</li>
       <li><strong>Spannung:</strong> U = R × I</li>
     </ul>
@@ -229,7 +273,7 @@
 </div>
 <div id="ges" class="section2" style="display:none;">
   <div id="geschwindigkeitBild" class="info-section">
-  <iframe width="600" height="400" 
+  <iframe width="500" height="300" 
         src="https://www.youtube.com/embed/8A1PkODrdCI?autoplay=1" 
         title="YouTube video player" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -276,9 +320,8 @@
 
 <!-- Java-Code Bereich -->
 <div class="section1">
-<details class="section1">
+<details class="section1" open>
   <summary><strong>Java-Quellcode anzeigen</strong></summary>
-  <pre id="javaCode"><code>
   <pre id="javaCode"><code>
 // Java-Version des Rechners
 import java.util.Scanner;
@@ -448,9 +491,9 @@ public class Taschenrechner{
             }
   }
 
-
-  </code></pre>
+ </code></pre>
   <button class="copy-button" onclick="copyJavaCode()">Code kopieren</button>
+</details>
 </div>
 <script>
   function zeigeModus() {
