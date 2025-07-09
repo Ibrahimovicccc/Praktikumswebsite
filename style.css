@@ -198,7 +198,7 @@ main {
   border-radius: 8px;      /* optional: abgerundete Ecken */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für 3D-Effekt */
   margin-top: -20px;
-  margin-left: 200px;
+  margin-left: 150px;
 }
 .k-image {
   
@@ -209,12 +209,21 @@ main {
   border-radius: 8px;      /* optional: abgerundete Ecken */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* optional: Schatten für 3D-Effekt */
   margin-top: -500px;
-  margin-left: 750px;
+  margin-left: 700px;
 }
 .Inhalt {
   margin-top: -50px;
 }
 
+.text-bot {
+  background-color: #ffffff;         /* weißer Hintergrund */
+  border: 1px solid #dcdcdc;         /* dezenter Rahmen */
+  border-radius: 10px;               /* abgerundete Ecken */
+  padding: 1.5rem 2rem;              /* Innenabstand */
+  margin: 2rem auto;                 /* Abstand nach außen + zentriert */
+  max-width: 900px;                  /* maximale Breite */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* sanfter Schatten */
+}
 
 
 /* Fußzeile */
