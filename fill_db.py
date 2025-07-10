@@ -9,7 +9,7 @@ CHROMA_PATH = r"chroma_db"
 
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 
-collection = chroma_client.get_or_create_collection(name="Abi_Vorgaben")
+collection = chroma_client.get_or_create_collection(name="Abi-Vorgaben")
 
 # loading the document
 
