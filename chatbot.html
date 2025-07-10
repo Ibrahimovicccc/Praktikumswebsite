@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chatbot</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
@@ -173,14 +175,15 @@
 
     <!-- Chatbot links -->
     <section class="chatbot-section">
-      <h1>Chatbot zu Abiturfragen</h1>
-      <form method="post">
-        <input type="text" name="question" placeholder="Gib deine Frage ein" required />
-        <button type="submit">Fragen</button>
-      </form>
+    <h1>Abi-Chatbot</h1>
+    <form id="chat-form">
+        <label for="question">Frage eingeben:</label><br>
+        <input type="text" id="question" name="question"><br><br>
+        <button type="submit">Absenden</button>
+    </form>
 
-      <h2>Antwort:</h2>
-      <p>{{ answer }}</p>
+    <h3>Antwort:</h3>
+    <div id="answer">Noch keine Antwort.</div>
     </section>
 
     <!-- Video rechts -->
@@ -212,5 +215,36 @@
     </p>
   </article>
 
+      <py-script>
+from js import document
+import asyncio
+import pyodide_http
+pyodide_http.patch_all()
+
+async def handle_submit(evt):
+    evt.preventDefault()
+    question = document.getElementById("question").value
+    answer_div = document.getElementById("answer")
+
+    try:
+        response = await pyfetch(
+            url="http://localhost:8080/api/chat",
+            method="POST",
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            body=f"question={question}"
+        )
+        data = await response.json()
+        if "answer" in data:
+            answer_div.innerText = data["answer"]
+        else:
+            answer_div.innerText = f"Fehler: {data.get('error', 'Unbekannter Fehler')}"
+    except Exception as e:
+        answer_div.innerText = f"Fehler bei Anfrage: {e}"
+
+form = document.getElementById("chat-form")
+form.addEventListener("submit", handle_submit)
+# Button-Click binden
+document.getElementById("ask-btn").addEventListener("click", ask_chatbot)
+    </py-script>
 </body>
 </html>

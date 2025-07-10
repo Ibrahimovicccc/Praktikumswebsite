@@ -1,43 +1,43 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 import chromadb
 from openai import OpenAI
+from flask_cors import CORS  # Wichtig für Zugriff aus PyScript/Browser
 
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  # Erlaubt Zugriff vom Browser (z. B. PyScript)
 
-# ChromaDB setup
+# ChromaDB Setup
 CHROMA_PATH = "chroma_db"
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
 collection = chroma_client.get_or_create_collection(name="Abi-vorgaben")
 
-# OpenAI client
+# OpenAI Client
 client = OpenAI()
 
-@app.route("/", methods=["GET", "POST"])
-def index():
-    answer = ""
-    if request.method == "POST":
-        user_query = request.form["question"]
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
+    user_query = request.form.get("question", "")
+    if not user_query:
+        return jsonify({"error": "Keine Frage erhalten."}), 400
 
-        # Search in ChromaDB
-        results = collection.query(
-            query_texts=[user_query],
-            n_results=1
-        )
+    # ChromaDB-Suche
+    results = collection.query(
+        query_texts=[user_query],
+        n_results=1
+    )
 
-        # Prepare prompt
-        system_prompt = """
-        You are a helpful assistant. You answer questions about growing vegetables in Florida. 
-        But you only answer based on knowledge I'm providing you. You don't use your internal 
-        knowledge and you don't make things up.
-        If you don't know the answer, just say: I don't know
-        --------------------
-        The data:
-        """ + str(results['documents'])
+    system_prompt = """
+    Du bist ein Assistent, der bei Fragen zu Abi-Vorgaben hilft – 
+    in Mathe, Informatik (Leistungskurs) und Englisch (Grundkurs). 
+    Du antwortest nur auf Basis von PDF-Daten.
+    --------------------
+    The data:
+    """ + str(results["documents"])
 
-        # Call OpenAI
+    try:
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
@@ -45,10 +45,10 @@ def index():
                 {"role": "user", "content": user_query}
             ]
         )
-
         answer = response.choices[0].message.content
-
-    return render_template("chatbot.html", answer=answer)
+        return jsonify({"answer": answer})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
