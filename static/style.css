@@ -181,7 +181,7 @@ main {
 .b-image {
   
   margin: 100px auto;       /* Bild zentrieren (horizontal) und oben/unten Abstand */
-  max-width: 30%;          /* Bild maximal 90% der Breite des Containers */
+  max-width: 37%;          /* Bild maximal 90% der Breite des Containers */
   height: auto;            /* Höhe passt sich proportional an */
   border: 2px solid #333;  /* optional: Rahmen um das Bild */
   border-radius: 8px;      /* optional: abgerundete Ecken */
