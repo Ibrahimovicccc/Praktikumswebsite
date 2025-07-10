@@ -6,6 +6,45 @@
   <title>Mein Blog</title>
   <link rel="stylesheet" href="static/style.css" />
 </head>
+<style>
+.content-container {
+  display: flex;
+  right: 100px;
+  gap: 2px; /* Abstand zwischen Text und Bildbereich */
+  align-items: flex-start; /* Oben ausrichten */
+  padding: 20px;
+}
+
+/* Text nimmt den verfügbaren Platz ein */
+.Inhalt {
+  flex: 1;
+  right: 100px;
+  max-width: 60%;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+.content-container {
+  display: flex;
+  gap: 20px;               /* Abstand zwischen Text und Bild */
+  align-items: flex-start; /* Oben ausrichten */
+  padding: 20px;
+}
+
+.image-container {
+  display: flex;
+  top: 100px;
+  right: 400px;
+  flex-direction: column;  /* Bilder untereinander */
+  gap: 10px;               /* Abstand zwischen Bildern */
+}
+
+/* Keine Größenänderung der Bilder! */
+.l-image, .b-image {
+
+  display: block;          /* Entfernt unerwünschte Abstände */
+}
+
+</style>
 <header>
     <!-- Linkes Logo -->
     <img src="static/img/schuuco.jpg" alt="Schüco Logo" class="logo-left" />
@@ -85,6 +124,7 @@
   </nav>
   <!-- Hauptinhalt -->
   <main>
+    <div class="content-container">
     <article class="Inhalt">
     
       <h2 class="ueber-schueco-title">Über Schüco</h2>
@@ -97,12 +137,14 @@
       <p>Innovationen wie digitale Planungstools und vernetzte Gebäudesysteme unterstützen Architekten, Planer und Bauherren bei der Umsetzung moderner Bauprojekte.</p>
       <p>Schüco engagiert sich außerdem aktiv in sozialen Projekten und der Ausbildung junger Fachkräfte, um die Zukunft der Bau- und Immobilienbranche nachhaltig zu gestalten.</p>
     </article>
+    </div>
 </main>
     <!-- Bild passend zum Inhalt -->
-    <img src="static/img/schücogebäude.jpg" alt="Schüco Unternehmensgebäude" class="l-image" />
-     <img src="static/img/schucosmall.jpg" alt="Schüco Unternehmensgebäude" class="b-image" />
-  
-
+ <div class="image-container">
+      <img src="static/img/schücogebäude.jpg" alt="Schüco Unternehmensgebäude" class="l-image" />
+      <img src="static/img/schucosmall.jpg" alt="Schüco Unternehmensgebäude" class="b-image" />
+    </div>
+  </div>
   <footer>
     <p>© 2025 Ibrahim und Ashwin | Unser Blog</p>
   </footer>
