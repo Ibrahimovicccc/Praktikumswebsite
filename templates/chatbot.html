@@ -215,39 +215,37 @@
     </p>
   </article>
 
-    <py-script>
-from js import document
-import asyncio
-import pyodide_http
-pyodide_http.patch_all()
+<script>
+document.getElementById("chat-form").addEventListener("submit", async function(event) {
+  event.preventDefault();  // Verhindert das Neuladen der Seite
 
-async def handle_submit(evt):
-    evt.preventDefault()  # Verhindert Seiten-Neuladen
-    question = document.getElementById("question").value
-    answer_div = document.getElementById("answer")
+  const question = document.getElementById("question").value.trim();
+  const answerDiv = document.getElementById("answer");
 
-    if not question.strip():
-        answer_div.innerText = "Bitte eine Frage eingeben."
-        return
+  if (!question) {
+    answerDiv.textContent = "Bitte eine Frage eingeben.";
+    return;
+  }
 
-    try:
-        response = await pyfetch(
-            url="http://localhost:21648/api/chat",
-            method="POST",
-            headers={"Content-Type": "application/x-www-form-urlencoded"},
-            body=f"question={question}"
-        )
-        data = await response.json()
-        if "answer" in data:
-            answer_div.innerText = data["answer"]
-        else:
-            answer_div.innerText = f"Fehler: {data.get('error', 'Unbekannter Fehler')}"
-    except Exception as e:
-        answer_div.innerText = f"Fehler bei Anfrage: {e}"
+  try {
+    const response = await fetch("http://localhost:21648/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `question=${encodeURIComponent(question)}`
+    });
 
-# Event-Handler verknüpfen
-form = document.getElementById("chat-form")
-form.addEventListener("submit", handle_submit)
-  </py-script>
+    if (!response.ok) {
+      throw new Error(`Server antwortet mit Status ${response.status}`);
+    }
+
+    const data = await response.json();
+    answerDiv.textContent = data.answer || "Keine Antwort erhalten.";
+  } catch (error) {
+    answerDiv.textContent = `Fehler bei Anfrage: ${error.message}`;
+  }
+});
+</script>
 </body>
 </html>

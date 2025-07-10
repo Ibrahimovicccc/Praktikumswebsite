@@ -9,12 +9,13 @@ load_dotenv()
 
 # Flask-App erstellen
 app = Flask(__name__)
-CORS(app)  # Erlaube Zugriffe aus dem Browser (CORS für PyScript)
+CORS(app)  
 
 # ChromaDB initialisieren
-CHROMA_PATH = "chroma_db"
+DATA_PATH = r"data"
+CHROMA_PATH = r"chroma_db"
 chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
-collection = chroma_client.get_or_create_collection(name="Abi-vorgaben")
+collection = chroma_client.get_or_create_collection(name="Abi-Vorgaben")
 
 # OpenAI-Client vorbereiten
 client = OpenAI()
