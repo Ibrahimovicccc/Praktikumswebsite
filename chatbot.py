@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import *
 from dotenv import load_dotenv
 import chromadb
 from openai import OpenAI
@@ -16,7 +16,6 @@ collection = chroma_client.get_or_create_collection(name="Abi-vorgaben")
 
 # OpenAI Client
 client = OpenAI()
-
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
     user_query = request.form.get("question", "")
