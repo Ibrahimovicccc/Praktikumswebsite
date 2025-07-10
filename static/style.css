@@ -216,8 +216,23 @@ main {
 }
 
 .text-bot {
-  background-color: #ffffff;         /* weißer Hintergrund */
-  border: 1px solid #dcdcdc;         /* dezenter Rahmen */
+  background-color: white;         /* weißer Hintergrund */
+  border: 1px solid blue;         /* dezenter Rahmen */
+  border-radius: 10px;               /* abgerundete Ecken */
+  padding: 1.5rem 2rem;              /* Innenabstand */
+  margin: 2rem auto;                 /* Abstand nach außen + zentriert */
+  max-width: 900px;                  /* maximale Breite */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* sanfter Schatten */
+}
+
+.ueber-schueco-title {
+  color: #0072ce; /* Schüco-Blau oder beliebige Farbe */
+}
+
+
+.text-bo {
+  background-color: white;         /* weißer Hintergrund */
+  border: 1px solid blue;         /* dezenter Rahmen */
   border-radius: 10px;               /* abgerundete Ecken */
   padding: 1.5rem 2rem;              /* Innenabstand */
   margin: 2rem auto;                 /* Abstand nach außen + zentriert */
