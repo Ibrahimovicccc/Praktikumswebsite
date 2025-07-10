@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-center h1, .header-center h2 {
+      text-align: center;
+    }
+
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 30px;
+      flex-wrap: wrap;
+    }
+
+    .chatbot-section, .video-section {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 500px;
+    }
+
+    .chatbot-section form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chatbot-section input[type="text"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .chatbot-section button {
+      padding: 10px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .chatbot-section button:hover {
+      background-color: #45a049;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .video-section h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .video-section {
+      background-color: rgb(104, 116, 133);
+      color: white;
+    }
+
+    .video-section a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .Inhalt {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="static/img/schuuco.jpg" alt="Schüco Logo" class="logo-left" />
+    <div class="header-center">
+      <h1>Willkommen auf unserem Blog</h1>
+      <h2>von Ibrahim und Ashwin</h2>
+    </div>
+    <img src="static/img/logo3.jpg" alt="Anderes Logo" class="logo-right" />
+  </header>
+  <nav>
+    <ul class="nav-menu">
+      
+      <li><a href="index.html">Startseite</a></li>
+      <li class="dropdown">
+        <a href="#">Unternehmen</a>
+        <ul class="dropdown-menu">
+          <li><a href="ueber-schueco.html">Über Schüco</a></li>
+<li><a href="bereiche.html">Bereiche</a></li>
+
+          
+          
+          <li><a href="standorte.html">Standorte</a></li>
+         <li><a href="geschichte.html">Geschichte</a></li>
+       <li><a href="produktelösungen.html">Produkte & Lösungen</a></li>
+          <li><a href="nachhaltigkeit.html">Nachhaltigkeit</a></li>
+          <li><a href="forschunginnovation.html">Forschung & Innovation </a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Praktikum</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Tagesablauf</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="Webtigerpython.html">WebTigerJython</a></li>
+          <li><a href="taschenrechner.html">Taschenrechner</a></li>
+          <li><a href="#">Chatbot</a></li>
+          <li><a href="#">Stable Diffusion </a></li>
+          <li><a href="#">Cisko</a></li>
+          <li><a href="#">PC Installation</a></li>
+          <li><a href="#">Gruppenaktivitäten</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Lernerfahrungen</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Programmieren</a></li>
+          <li><a href="#">Selbstständigkeit</a></li>
+          <li><a href="#">KI-Einsatz</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Arbeitsumfeld</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Team & Kollegen</a></li>
+          <li><a href="#">Arbeitsplatz</a></li>
+          <li><a href="#">Arbeitszeiten & Flexibilität</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Karriere</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Jobs & Stellenangebote</a></li>
+          <li><a href="#">Bewerbungsprozess</a></li>
+          <li><a href="#">Karrierewege & Perspektiven</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Fazit</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Ibrahim</a></li>
+          <li><a href="#">Ashwin</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </nav>
+
+  <!-- Chatbot & Video Bereich -->
+  <div class="main-wrapper">
+
+    <!-- Chatbot -->
+  <section class="chatbot-section">
+    <h1>Abi-Chatbot</h1>
+    <form id="chat-form">
+      <label for="question">Frage eingeben:</label><br />
+      <input type="text" id="question" name="question" /><br /><br />
+      <button type="submit">Absenden</button>
+    </form>
+
+    <h3>Antwort:</h3>
+    <div id="answer">Noch keine Antwort.</div>
+  </section>
+
+    <!-- Video rechts -->
+    <section class="video-section">
+      <h3>Erklärvideo zu RAG (Retrieval-Augmented Generation)</h3>
+      <iframe 
+        src="https://www.youtube.com/embed/JfSmffOyV-8" 
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+      <p>
+        👉 <a href="https://www.youtube.com/watch?v=JfSmffOyV-8" target="_blank">
+          Zum Video auf YouTube
+        </a>
+      </p>
+    </section>
+
+  </div>
+
+  <!-- Erklärung -->
+  <article class="Inhalt">
+    <h2>Was ist RAG?</h2>
+    <p>
+      <strong>RAG</strong> steht für <em>Retrieval-Augmented Generation</em>. Das bedeutet, dass ein Sprachmodell (wie GPT)
+      mit einer externen Wissensdatenbank kombiniert wird. Wenn du eine Frage stellst, wird zuerst nach passenden Textstellen
+      in z. B. einem PDF gesucht. Danach beantwortet das Modell deine Frage **nur basierend auf diesen Informationen**.
+      Das sorgt für präzisere und nachvollziehbare Antworten.Im video oben erfährst du mehr.
+    </p>
+  </article>
+
+    <py-script>
+from js import document
+import asyncio
+import pyodide_http
+pyodide_http.patch_all()
+
+async def handle_submit(evt):
+    evt.preventDefault()  # Verhindert Seiten-Neuladen
+    question = document.getElementById("question").value
+    answer_div = document.getElementById("answer")
+
+    if not question.strip():
+        answer_div.innerText = "Bitte eine Frage eingeben."
+        return
+
+    try:
+        response = await pyfetch(
+            url="http://localhost:21648/api/chat",
+            method="POST",
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
+            body=f"question={question}"
+        )
+        data = await response.json()
+        if "answer" in data:
+            answer_div.innerText = data["answer"]
+        else:
+            answer_div.innerText = f"Fehler: {data.get('error', 'Unbekannter Fehler')}"
+    except Exception as e:
+        answer_div.innerText = f"Fehler bei Anfrage: {e}"
+
+# Event-Handler verknüpfen
+form = document.getElementById("chat-form")
+form.addEventListener("submit", handle_submit)
+  </py-script>
+</body>
+</html>
