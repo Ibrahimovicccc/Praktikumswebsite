@@ -5,8 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mein Blog</title>
   <link rel="stylesheet" href="static/style.css" />
+  <style>
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .fade {
+      animation: fadeEffect 3s;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
+    }
+
+    .slide-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .slide-content img {
+      width: 50%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .slide-text {
+      flex: 1;
+      font-family: Arial, sans-serif;
+    }
+
+    .slide-text h3 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+
+    .slide-text p {
+      margin-top: 5px;
+      font-size: 1em;
+      color: #000000;
+    }
+  </style>
 </head>
-<header>
+<body>
+  <header>
     <!-- Linkes Logo -->
     <img src="static/img/schuuco.jpg" alt="Schüco Logo" class="logo-left" />
 
@@ -20,29 +72,24 @@
     <img src="static/img/logo3.jpg" alt="Anderes Logo" class="logo-right" />
   </header>
 
-<nav>
+  <nav>
     <ul class="nav-menu">
-      
       <li><a href="index.html">Startseite</a></li>
       <li class="dropdown">
         <a href="#">Unternehmen</a>
         <ul class="dropdown-menu">
           <li><a href="ueber-schueco.html">Über Schüco</a></li>
           <li><a href="bereiche.html">Bereiche</a></li>
-
-          
-          
           <li><a href="standorte.html">Standorte</a></li>
-         <li><a href="geschichte.html">Geschichte</a></li>
-       <li><a href="produktelösungen.html">Produkte & Lösungen</a></li>
+          <li><a href="geschichte.html">Geschichte</a></li>
+          <li><a href="produktelösungen.html">Produkte & Lösungen</a></li>
           <li><a href="nachhaltigkeit.html">Nachhaltigkeit</a></li>
-          <li><a href="forschunginnovation.html">Forschung & Innovation </a></li>
+          <li><a href="forschunginnovation.html">Forschung & Innovation</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#">Praktikum</a>
         <ul class="dropdown-menu">
-         
           <li><a href="Aufgaen.html">Aufgaben</a></li>
           <li><a href="Webtigerpython.html">WebTigerJython</a></li>
           <li><a href="taschenrechner.html">Taschenrechner</a></li>
@@ -65,56 +112,93 @@
           <li><a href="arbeitszeitenundflexibilität.html">Arbeitszeiten & Flexibilität</a></li>
         </ul>
       </li>
-
       <li class="dropdown">
         <a href="#">Karriere</a>
         <ul class="dropdown-menu">
           <li><a href="jobsundstellen.html">Jobs & Stellenangebote</a></li>
-          
         </ul>
       </li>
-      <li class="dropdown">
-        <a href="Fazitibo.html">Fazit</a>
-    
+      <li><a href="Fazitibo.html">Fazit</a></li>
+    </ul>
   </nav>
 
   <!-- Hauptinhalt -->
   <main>
     <article>
-
-      <h2 class="ueber-schueco-title">Produkte & Lösungen von Schüco</h2>
-
-      <p>Schüco bietet ein umfangreiches Sortiment an innovativen Produkten und maßgeschneiderten Lösungen im Bereich Fenster, Türen und Fassaden. Dabei kombiniert das Unternehmen moderne Technologie mit nachhaltigen Materialien, um höchste Energieeffizienz und Komfort zu gewährleisten.</p>
-
       
-       <h2 class="ueber-schueco-title">Fenster</h2>
-      <p>Die Schüco Fensterlösungen zeichnen sich durch hervorragende Wärmedämmung, Einbruchschutz und ansprechendes Design aus. Ob Aluminium, Kunststoff oder Kombinationen – Schüco bietet für jedes Bauvorhaben passende Fensterprofile mit hoher Funktionalität und Langlebigkeit.</p>
-
-     
-       <h2 class="ueber-schueco-title">Türen</h2>
-      <p>Das Produktsortiment umfasst neben Haustüren auch Sicherheitstüren und Schiebetürsysteme. Die Türen sind vielseitig gestaltbar, robust und bieten verschiedene Sicherheits- und Komfortfeatures, die den Alltag erleichtern.</p>
-
-
-       <h2 class="ueber-schueco-title">Fassaden</h2>
-      <p>Moderne Fassaden von Schüco verbinden Ästhetik mit Energieeffizienz. Das Unternehmen entwickelt hochfunktionale Pfosten-Riegel-Systeme, die Architekten flexible Gestaltungsmöglichkeiten eröffnen und zugleich den hohen Anforderungen an Nachhaltigkeit gerecht werden.</p>
-
-      
-       <h2 class="ueber-schueco-title">Smart Home & Automation</h2>
-      <p>Schüco integriert intelligente Steuerungssysteme, die Fenster, Türen und Fassaden in vernetzte Smart-Home-Lösungen einbinden. So lassen sich Lüftung, Sonnenschutz und Sicherheit bequem über Apps oder automatische Systeme regeln.</p>
-
-      
-       <h2 class="ueber-schueco-title">Nachhaltigkeit & Energieeffizienz</h2>
-      <p>Die Produkte von Schüco sind darauf ausgelegt, den Energieverbrauch zu minimieren und den CO₂-Fußabdruck zu reduzieren. Innovative Isolationsmaterialien und nachhaltige Produktionsprozesse sind Teil der Firmenphilosophie.</p>
-
-      <p>Mit diesen vielfältigen Produkten und Lösungen ist Schüco ein verlässlicher Partner für Bauherren, Architekten und Handwerker weltweit.</p>
+    <h2 class="ueber-schueco-title">Produkte von Schüco</h2>
     </article>
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <div class="slide-content">
+          <img src="static/img/schueco-produkte.jpg" alt="Bild 1" />
+          <div class="slide-text">
+            <p>Schüco AWS 75.SI+ optimized mit 75 mm Bautiefe ab 178 mm Ansichtsbreite: Passivhaus zertifizierte Wärmedämmung mit Uf = 0,79 W/(m2K).</p>
+          </div>
+        </div>
+      </div>
 
-    
+      <div class="slide fade">
+        <div class="slide-content">
+          <img src="static/img/Schueco_AF_UDC_80_03.jpg" alt="Bild 2" />
+          <div class="slide-text">
+            <p>Die Fassaden-Systemplattform UDC (Unitized Dynamic Construction), mit der in Elementbauweise individuelle Objekte bei hoher Gestaltungsfreiheit verwirklicht werden können, enthält ein Silber- und zwei Bronze-zertifizierte C2C-Systeme.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide fade">
+        <div class="slide-content">
+          <img src="static/img/Schueco_DuraSwift.jpg" alt="Bild 3" />
+          <div class="slide-text">
+            <p>Das Klebstoffsortiment Schüco DuraSwift ist für alle Schüco Kunststoff-Fensterprofile geprüft und zertifiziert.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide fade">
+        <div class="slide-content">
+          <img src="static/img/Schueco_DCS_Smart_Touch_Funktion.jpg" alt="Bild 4" />
+          <div class="slide-text">
+            <p>Das DCS SmartTouch System besteht aus dem SmartTouch Modul, der eigenen Schüco App und der Schüco Cloud.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide fade">
+        <div class="slide-content">
+          <img src="static/img/schueco_Webspecial_LivIngSlidePanorama.jpg" alt="Bild 5" />
+          <div class="slide-text">
+            <p>PANORAMA: Schüco LivIngSlide mit reduzierten Ansichtsbreiten bei Flügel und Festfeld bietet ein hohes Maß an Transparenz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- Fußzeile -->
   <footer>
     <p>© 2025 Ibrahim und Ashwin | Unser Blog</p>
   </footer>
+
+  <!-- Slideshow-Script -->
+  <script>
+    let slideIndex = 0;
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Alle 3 Sekunden wechseln
+    }
+
+    showSlides();
+  </script>
 </body>
 </html>
