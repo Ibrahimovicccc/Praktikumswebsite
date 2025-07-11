@@ -88,7 +88,277 @@
       background-color: white;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    }/* Grundstruktur für beide Roboter */
+.robot {
+  width: 100px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.robot .head, .robot .body, .robot .arm {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+/* Kopf */
+.robot .head {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  background-color: #444;
+}
+
+/* Augen */
+.robot .eye {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+}
+.robot .eye.left { left: 10px; }
+.robot .eye.right { right: 10px; }
+
+/* Körper */
+.robot .body {
+  width: 80px;
+  height: 90px;
+  position: absolute;
+  top: 50px;
+  left: 10px;
+}
+
+/* Arme */
+.robot .arm {
+  width: 20px;
+  height: 60px;
+  position: absolute;
+  top: 60px;
+  background-color: #666;
+}
+.robot .arm.left { left: -20px; }
+.robot .arm.right { right: -20px; }
+
+/* Tanz-Animation */
+.dancing .arm.left {
+  animation: wave-left 1s infinite alternate;
+}
+.dancing .arm.right {
+  animation: wave-right 1s infinite alternate;
+}
+@keyframes wave-left {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-30deg); }
+}
+@keyframes wave-right {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(30deg); }
+}
+
+/* Lade-Roboter dreht sich */
+.loading-robot {
+  animation: spin 2s linear infinite;
+  transform-origin: center center;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}.robot {
+  width: 200px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  transform-origin: center;
+}
+
+/* Kopf */
+.robot .head {
+  width: 100px;
+  height: 60px;
+  background-color: #222;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px #0ff;
+}
+
+/* Augen */
+.robot .eye {
+  width: 15px;
+  height: 15px;
+  background: #0ff;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+}
+.robot .eye.left {
+  left: 20px;
+}
+.robot .eye.right {
+  right: 20px;
+}
+
+/* Antenne */
+.robot .antenna {
+  width: 6px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* Körper */
+.robot .body {
+  width: 140px;
+  height: 160px;
+  background-color: #555;
+  border-radius: 15px;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 15px #0ff inset;
+}
+
+/* Arme */
+.robot .arm {
+  width: 30px;
+  height: 100px;
+  background-color: #07d214;
+  position: absolute;
+  top: 90px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #000000 inset;
+}
+.robot .arm.left {
+  left: -20px;
+  transform-origin: top right;
+}
+.robot .arm.right {
+  right: -20px;
+  transform-origin: top left;
+}
+
+/* Beine */
+.robot .leg {
+  width: 30px;
+  height: 80px;
+  background-color: #030303;
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px;
+}
+.robot .leg.left {
+  left: 40px;
+}
+.robot .leg.right {
+  right: 40px;
+}
+
+/* Tanzbewegung */
+.dancing .arm.left {
+  animation: dance-left 0.5s infinite alternate ease-in-out;
+}
+.dancing .arm.right {
+  animation: dance-right 0.5s infinite alternate ease-in-out;
+}
+.dancing {
+  animation: bob 1s infinite ease-in-out;
+}
+
+/* Tanz-Animation */
+@keyframes dance-left {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-60deg); }
+}
+
+@keyframes dance-right {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(60deg); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* Ladeanimation – Drehen */
+.loading-robot {
+  animation: spin 1.5s linear infinite;
+  transform-origin: center center;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Lade-Roboter: Grauer Stil, blinkende Augen, neutraler Look */
+.loading-robot .head {
+  background-color: #444;
+  box-shadow: 0 0 10px #88f inset;
+}
+.loading-robot .eye {
+  background: #88f;
+  animation: blink 1s infinite alternate;
+}
+.loading-robot .mouth {
+  width: 40px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.loading-robot .body {
+  background-color: #666;
+  box-shadow: 0 0 10px #888 inset;
+}
+.loading-robot .arm,
+.loading-robot .leg {
+  background-color: #555;
+  box-shadow: none;
+}
+
+/* Drehen beim Denken */
+.loading-robot {
+  animation: spin 2s linear infinite;
+}
+
+/* Blinken der Augen */
+@keyframes blink {
+  0% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+.robot .body {
+  position:absolute ;
+  width: 150px;
+  height: 150px;
+  background-color: #07d214;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000000 inset;
+}
+
+.robot-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: auto;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  box-shadow: 0 0 5px #0003;
+}
   </style>
 </head>
 
@@ -109,7 +379,7 @@
 <nav>
     <ul class="nav-menu">
       
-      <li><a href="index.html">Startseite</a></li>
+      <li><a href="C:\Users\Schueco\Desktop\GitHub\Praktikumswebsite\index.html">Startseite</a></li>
       <li class="dropdown">
         <a href="#">Unternehmen</a>
         <ul class="dropdown-menu">
@@ -128,8 +398,8 @@
       <li class="dropdown">
         <a href="#">Praktikum</a>
         <ul class="dropdown-menu">
-         
-          <li><a href="Aufgaen.html">PC Aufbauen/Win inst.</a></li>
+          <li><a href="tagesablauf.html">Tagesablauf</a></li>
+          <li><a href="Aufgaen.html">Aufgaben</a></li>
           <li><a href="Webtigerpython.html">WebTigerJython</a></li>
           <li><a href="taschenrechner.html">Taschenrechner</a></li>
           <li><a href="http://127.0.0.1:21648">Chatbot</a></li>
@@ -153,13 +423,18 @@
       </li>
 
       <li class="dropdown">
-        <a href="jobsundstellen.html">Karriere</a>
-         
+        <a href="#">Karriere</a>
+        <ul class="dropdown-menu">
+          <li><a href="jobsundstellen.html">Jobs & Stellenangebote</a></li>
+          <li><a href="Bewerbungsprozess.html">Bewerbungsprozess</a></li>
         </ul>
       </li>
       <li class="dropdown">
-        <a href="Fazitibo.html">Fazit</a>
-       
+        <a href="#">Fazit</a>
+        <ul class="dropdown-menu">
+          <li><a href="Fazitibo.html">Ibrahim</a></li>
+          <li><a href="FazitAshwin.html">Ashwin</a></li>
+        </ul>
       </li>
       
     </ul>
@@ -169,33 +444,54 @@
   <div class="main-wrapper">
 
     <!-- Chatbot -->
-  <section class="chatbot-section">
-    <h1>Abi-Chatbot</h1>
-    <form id="chat-form">
-      <label for="question">Frage eingeben:</label><br />
-      <input type="text" id="question" name="question" /><br /><br />
-      <button type="submit">Absenden</button>
-    </form>
+<section class="chatbot-section">
+  <h1>Abi-Chatbot</h1>
+  <form id="chat-form">
+    <label for="question">Frage eingeben:</label><br />
+    <input type="text" id="question" name="question" /><br /><br />
+    <button type="submit">Absenden</button>
+  </form>
 
-    <h3>Antwort:</h3>
-    <div id="answer">Noch keine Antwort.</div>
-  </section>
+<div id="loading" style="display:none; text-align:center; margin-top:15px;">
+  <div class="robot loading-robot">
+    <div class="antenna"></div>
+    <div class="head loading-face">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth"></div>
+    </div>
+    <div class="body"></div>
+    <div class="arm left"></div>
+    <div class="arm right"></div>
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+  </div>
+  <p>Der Roboter denkt nach...</p>
+</div>
 
-    <!-- Video rechts -->
-    <section class="video-section">
-      <h3>Erklärvideo zu RAG (Retrieval-Augmented Generation)</h3>
-      <iframe 
-        src="https://www.youtube.com/embed/JfSmffOyV-8" 
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-      </iframe>
-      <p>
-        👉 <a href="https://www.youtube.com/watch?v=JfSmffOyV-8" target="_blank">
-          Zum Video auf YouTube
-        </a>
-      </p>
-    </section>
+
+  <h3>Antwort:</h3>
+  <div id="answer">Noch keine Antwort.</div>
+</section>
+
+    <!-- Roboter rechts -->
+
+<section class="video-section">
+  <div class="robot dancing">
+    <div class="antenna"></div>
+    <div class="head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+    </div>
+    <div class="body">
+    <img src="static/img/schuuco.jpg" alt="Logo" class="robot-logo" /></div>
+    <div class="arm left"></div>
+    <div class="arm right"></div>
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+  </div>
+</section>
+
 
   </div>
 
@@ -210,17 +506,21 @@
     </p>
   </article>
 
-<script>
+<<script>
 document.getElementById("chat-form").addEventListener("submit", async function(event) {
-  event.preventDefault();  // Verhindert das Neuladen der Seite
+  event.preventDefault();
 
   const question = document.getElementById("question").value.trim();
   const answerDiv = document.getElementById("answer");
+  const loadingDiv = document.getElementById("loading");
 
   if (!question) {
     answerDiv.textContent = "Bitte eine Frage eingeben.";
     return;
   }
+
+  loadingDiv.style.display = "block";
+  answerDiv.textContent = "";
 
   try {
     const response = await fetch("http://localhost:21648/api/chat", {
@@ -231,16 +531,15 @@ document.getElementById("chat-form").addEventListener("submit", async function(e
       body: `question=${encodeURIComponent(question)}`
     });
 
-    if (!response.ok) {
-      throw new Error(`Server antwortet mit Status ${response.status}`);
-    }
-
     const data = await response.json();
     answerDiv.textContent = data.answer || "Keine Antwort erhalten.";
   } catch (error) {
     answerDiv.textContent = `Fehler bei Anfrage: ${error.message}`;
+  } finally {
+    loadingDiv.style.display = "none";
   }
 });
 </script>
+
 </body>
 </html>
