@@ -42,8 +42,7 @@
       <li class="dropdown">
         <a href="#">Praktikum</a>
         <ul class="dropdown-menu">
-          <li><a href="tagesablauf.html">Tagesablauf</a></li>
-          <li><a href="Aufgaen.html">Aufgaben</a></li>
+          <li><a href="Aufgaen.html">PC Aufbauen/Win inst.</a></li>
           <li><a href="Webtigerpython.html">WebTigerJython</a></li>
           <li><a href="taschenrechner.html">Taschenrechner</a></li>
           <li><a href="http://127.0.0.1:21648">Chatbot</a></li>
@@ -92,7 +91,7 @@
     <div class="slideshow-container">
       <div class="slide fade">
         <div class="slide-content">
-          <img src="static/img/schueco-produkte.jpg" alt="Bild 1" />
+          <img src="static/img/Medien2 (3).jpg" alt="Bild 1" />
           <div class="slide-text">
             <p>Schüco AWS 75.SI+ optimized mit 75 mm Bautiefe ab 178 mm Ansichtsbreite: Passivhaus zertifizierte Wärmedämmung mit Uf = 0,79 W/(m2K).</p>
           </div>
@@ -101,7 +100,7 @@
 
       <div class="slide fade">
         <div class="slide-content">
-          <img src="static/img/Schueco_AF_UDC_80_03.jpg" alt="Bild 2" />
+          <img src="static/img/Medien2 (4).jpg" alt="Bild 2" />
           <div class="slide-text">
             <p>Die Fassaden-Systemplattform UDC (Unitized Dynamic Construction), mit der in Elementbauweise individuelle Objekte bei hoher Gestaltungsfreiheit verwirklicht werden können, enthält ein Silber- und zwei Bronze-zertifizierte C2C-Systeme.</p>
           </div>
@@ -110,7 +109,7 @@
 
       <div class="slide fade">
         <div class="slide-content">
-          <img src="static/img/Schueco_DuraSwift.jpg" alt="Bild 3" />
+          <img src="static/img/lets-connect-you-to-a-network.jpg" alt="Bild 3" />
           <div class="slide-text">
             <p>Das Klebstoffsortiment Schüco DuraSwift ist für alle Schüco Kunststoff-Fensterprofile geprüft und zertifiziert.</p>
           </div>
@@ -119,10 +118,34 @@
 
       <div class="slide fade">
         <div class="slide-content">
-          <img src="static/img/Schueco_DCS_Smart_Touch_Funktion.jpg" alt="Bild 4" />
+          <img src="static/img/Medien.jpg" alt="Bild 4" />
           <div class="slide-text">
             <p>Das DCS SmartTouch System besteht aus dem SmartTouch Modul, der eigenen Schüco App und der Schüco Cloud.</p>
           </div>
         </div>
       </div>
 </main>
+
+<footer>
+  <p>© 2025 Ibrahim und Ashwin | Unser Blog</p>
+</footer>
+ <script>
+    let slideIndex = 0;
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Alle 3 Sekunden wechseln
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>
