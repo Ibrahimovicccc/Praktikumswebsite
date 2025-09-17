@@ -27,14 +27,20 @@
       flex-wrap: wrap;
     }
 
-    .chatbot-section, .video-section {
+    .chatbot-section {
       background: #ffffff;
       border-radius: 15px;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       width: 500px;
     }
-
+    .video-section{
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 500px;
+    }
     .chatbot-section form {
       display: flex;
       flex-direction: column;
@@ -71,15 +77,6 @@
       color: #ffffff;
     }
 
-    .video-section {
-      background-color: rgb(104, 116, 133);
-      color: white;
-    }
-
-    .video-section a {
-      color: white;
-      text-decoration: underline;
-    }
 
     .Inhalt {
       max-width: 1000px;
@@ -506,7 +503,7 @@
     </p>
   </article>
 
-<<script>
+<script>
 document.getElementById("chat-form").addEventListener("submit", async function(event) {
   event.preventDefault();
 
